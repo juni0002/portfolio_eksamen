@@ -1,0 +1,245 @@
+/*************** Reset *********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/***** menu *****/
+.logo img {
+  width: 25%;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  padding: 10px 2rem; /* Jeg har kombineret padding her for at undgå duplikation */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff;
+  z-index: 1001;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", sans-serif;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 10px;
+  color: #091beb;
+  text-decoration: none;
+  transition: color 0.3s;
+  text-align: end;
+  white-space: nowrap; /* Forhindrer tekst i at bryde til ny linje */
+}
+
+.menu a:hover {
+  color: #fccaea;
+}
+
+.logo a {
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.burger {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.burger .line {
+  width: 100%;
+  height: 1.5px;
+  background-color: #091beb;
+  margin-bottom: 7px;
+  transition: 0.2s linear;
+}
+.burger {
+  display: none;
+}
+
+/*****mobil*****/
+@media screen and (max-width: 800px) {
+  .menu {
+    display: none;
+  }
+
+  .logo img {
+    width: 40%;
+  }
+  .burger {
+    display: block;
+  }
+
+  .burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+    transition: 0.2s linear;
+  }
+
+  .burger.active .line:nth-child(2) {
+    opacity: 0;
+    transition: 0.15s linear;
+  }
+
+  .burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    transition: 0.2s linear;
+  }
+
+  nav.active .menu {
+    display: block;
+    background-color: #fccaea;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw; /* Brug 100ViewWidth for at fylde hele vinduets bredde */
+    z-index: 1;
+    overflow-y: auto;
+    margin: 0; /* Tilføjet nulstilling af margener */
+    padding: 0; /* Tilføjet nulstilling af polstring */
+  }
+
+  nav.active .menu li {
+    margin: 10px 20px;
+  }
+
+  nav.active .menu a {
+    font-size: 15px;
+  }
+}
+
+/***** FOOTER ****/
+
+footer {
+  background-color: #fccaea;
+  padding: 50px;
+}
+
+/***** MOBIL *****/
+
+@media screen and (max-width: 800px) {
+  footer {
+    padding: 0;
+    padding-top: 20px;
+  }
+  .logo_footer img {
+    display: flex;
+    width: 110%;
+    justify-content: center; /* Aligns the image horizontally */
+  }
+
+  .logo_footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Juster afstanden fra info-sektionen */
+  }
+
+  .info {
+    font-family: "Roboto Mono", sans-serif;
+    color: #091beb;
+    margin: 10px;
+  }
+
+  .info-text h3 {
+    margin: 0; /* Fjerner standardmargen fra overskrifterne */
+    font-size: 0.6rem;
+    margin-left: 10px; /* Juster afstanden mellem billede og tekst */
+    white-space: nowrap;
+  }
+
+  .info h3 {
+    margin: 20px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info img {
+    width: 20%;
+    display: flex;
+    justify-content: right;
+  }
+}
+
+/**** DESKTOP ****/
+@media (min-width: 700px) {
+  .logo_footer img {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: auto;
+  }
+
+  .logo_footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Juster efter behov */
+  }
+
+  .info {
+    align-items: center;
+    font-family: "Roboto Mono", sans-serif;
+    color: #091beb;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding-bottom: 60px;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .info img {
+    width: 10%;
+  }
+
+  .info h3 {
+    margin: 20px;
+    font-size: 1rem;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info-ikon,
+  .info_ig,
+  .info_mail,
+  .info_tlf {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+  }
+
+  .info-ikon {
+    display: none; /* Skjuler ikonerne i mobilversionen */
+  }
+}
